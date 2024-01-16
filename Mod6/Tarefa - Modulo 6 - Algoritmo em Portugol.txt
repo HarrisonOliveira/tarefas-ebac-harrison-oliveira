@@ -1,0 +1,21 @@
+01 - Acordo;
+02 - Me sento na beirada da cama;
+03 - Pego a garrafa no criado mudo;
+04 - Tem agua na garrafa?
+	1 - bebo a agua;
+	2 - coloco a garrafa de volta no criado mudo;
+	3 - me levanto;
+	4 - arrumo minha cama;
+05 - Não tem agua?
+	1 - coloco a garrafa de volta no criado mudo;
+	2 - Me levanto;
+	3 - arrumo minha cama;
+06 - Vou ao banheiro;
+07 - pego minha escova de tendes;
+08 - escovo os dentes;
+09 - lavo o rosto;
+10 - enxugo o rosto;
+11 - tomo banho;
+12 - me arrumo;
+13 - tomo café;
+14 - vou ao trabalho;
