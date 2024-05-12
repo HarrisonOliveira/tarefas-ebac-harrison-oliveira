@@ -12,12 +12,12 @@ public static void main(String[] args) {
 
 
     do {
-        System.out.println(STR."Insira sua nota \{contador}: ");
+        System.out.println(STR."Insira sua \{contador}ª nota: ");
         nota = s.nextInt() + nota;
         contador++;
     }
     while (contador <= 4); {
-        nota = nota / 4;
+        nota = nota / (contador - 1) ;
         if (nota >= 7) System.out.println(STR."Sua nota média foi de \{nota} pontos. Você foi aprovado, parabêns!");
         else if (nota >= 5) System.out.println(STR."Sua nota média foi de \{nota} pontos. Você está de recuperação.");
         else System.out.println(STR."Sua nota média foi de \{nota} pontos. Você está reprovado. ");
