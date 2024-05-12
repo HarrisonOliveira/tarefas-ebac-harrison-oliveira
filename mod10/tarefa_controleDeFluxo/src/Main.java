@@ -8,7 +8,7 @@ public class Main {
         Scanner s = new Scanner(System.in);
         System.out.println("Digite a sua nota: ");
 
-        int nota = s.nextInt();
+        byte nota = s.nextByte();
 
         if (nota >= 7) System.out.println("Você foi aprovado, parabêns!");
         else if (nota >= 5) System.out.println("Você está de recuperação.");
