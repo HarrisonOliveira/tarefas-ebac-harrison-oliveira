@@ -21,7 +21,7 @@ public class Main {
             if (genero.contains("- M")) masculino.add(genero);
             else feminino.add(genero);
         }
-
+        
         Collections.sort(masculino);
         Collections.sort(feminino);
         System.out.println(masculino);
