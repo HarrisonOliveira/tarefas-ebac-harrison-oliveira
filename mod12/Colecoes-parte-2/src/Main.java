@@ -16,9 +16,7 @@ public class Main {
         List<String> masculino = new ArrayList<>();
         List<String> feminino = new ArrayList<>();
 
-
         Map<generoEnum, List<String>> pessoasGenero = new HashMap<>();
-
 
         for (String pessoa: listaNomes) {
             if (pessoa.contains("- M")) masculino.add(pessoa);
@@ -28,8 +26,6 @@ public class Main {
 
         pessoasGenero.put(generoEnum.valueOf(generoEnum.MASCULINO.toString()), masculino);
         pessoasGenero.put(generoEnum.valueOf(generoEnum.FEMININO.toString()), feminino);
-
-
 
         System.out.println(pessoasGenero.get(generoEnum.MASCULINO));
         System.out.println(pessoasGenero.get(generoEnum.FEMININO));
