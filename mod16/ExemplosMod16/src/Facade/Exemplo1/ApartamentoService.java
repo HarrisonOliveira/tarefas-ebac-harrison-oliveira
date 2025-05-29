@@ -1,4 +1,4 @@
-package Facade;
+package Facade.Exemplo1;
 
 public class ApartamentoService implements IApartamentoService{
 
