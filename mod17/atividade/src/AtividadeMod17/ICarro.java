@@ -1,5 +1,5 @@
 package AtividadeMod17;
 
 public interface ICarro {
-    public Carro criarCarro(Long codigoCarro, MarcaCarro marcaCarro, String modeloCarro);
+    public void criarCarro(Long codigoCarro, String marcaCarro, String modeloCarro);
 }
