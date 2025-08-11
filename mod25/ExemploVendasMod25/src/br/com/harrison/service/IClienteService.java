@@ -6,4 +6,6 @@ public interface IClienteService {
     void salvarCliente(Long cpf, Cliente cliente);
 
     Cliente consultarClienteCpf(Long cpf);
+
+    void alterarNomeCliente(Long cpf, String nome);
 }

@@ -1,10 +1,10 @@
 package br.com.harrison.service;
 
-import br.com.harrison.Dao.ClienteDao;
 import br.com.harrison.Dao.IClienteDao;
 import br.com.harrison.cliente.Cliente;
 
 public class ClienteService implements IClienteService{
+
 
     IClienteDao clienteDao;
 
@@ -20,5 +20,12 @@ public class ClienteService implements IClienteService{
     @Override
     public Cliente consultarClienteCpf(Long cpf) {
            return clienteDao.consultarCliente(cpf);
+    }
+
+    @Override
+    public void alterarNomeCliente(Long cpf, String nome) {
+        if (cpf != null && nome != null) {
+            clienteDao.alterarNomeCliente(cpf, cliente -> cliente.setNome(nome));
+        }
     }
 }

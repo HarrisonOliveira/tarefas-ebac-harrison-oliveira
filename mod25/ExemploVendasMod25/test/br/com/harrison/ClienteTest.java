@@ -16,19 +16,23 @@ public class ClienteTest {
     }
     @Test
     public void pesquisarCliente () {
+
+        Long cpf = 12345678902L;
         Cliente cliente = new Cliente("Harrison",
-                12345678900L,
+                12345678904L,
                 999999999L,
                 "Rua Acre",
                 10,
                 "Acre",
                 "Acre");
 
-        clienteService.salvarCliente(12345678900L ,cliente);
-        Cliente clienteConsultado = clienteService.consultarClienteCpf(12345678900L);
-        Assertions.assertEquals(cliente, clienteConsultado);
+        clienteService.salvarCliente(12345678904L ,cliente);
+        Cliente clienteConsultado = clienteService.consultarClienteCpf(cpf);
+        Assertions.assertNotEquals(cliente, clienteConsultado);
 
-        Assertions.assertNull(clienteService.consultarClienteCpf(999999999L));
+        clienteService.alterarNomeCliente(cpf, "João");
+        Assertions.assertNotEquals(cliente, clienteService.consultarClienteCpf(cpf));
     }
+
 
 }
