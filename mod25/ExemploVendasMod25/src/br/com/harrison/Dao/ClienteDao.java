@@ -24,9 +24,9 @@ public class ClienteDao implements IClienteDao{
         return clientes.get(cpf);
     }
 
-    public void alterarNomeCliente(Long id, Consumer<Cliente> atualizador) {
+    public void alterarNomeCliente(Long id, Consumer<Cliente> modificadorCliente) {
             clientes.computeIfPresent(id, (chave, cliente) -> {
-                atualizador.accept(cliente);
+                modificadorCliente.accept(cliente);
                 return cliente;
             });
     }

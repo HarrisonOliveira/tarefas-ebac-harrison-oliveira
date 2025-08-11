@@ -26,10 +26,15 @@ public class ClienteTest {
                 "Acre",
                 "Acre");
 
+
+//        Salvar um cliente e verificar se o mesmo foi salvo
+
         clienteService.salvarCliente(12345678904L ,cliente);
         Cliente clienteConsultado = clienteService.consultarClienteCpf(cpf);
         Assertions.assertNotEquals(cliente, clienteConsultado);
 
+
+//        Alterar o nome do cliente e verificar se o nome foi alterado
         clienteService.alterarNomeCliente(cpf, "João");
         Assertions.assertNotEquals(cliente, clienteService.consultarClienteCpf(cpf));
     }
