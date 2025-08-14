@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/tarefas-ebac-harrison-oliveira.iml" filepath="$PROJECT_DIR$/.idea/tarefas-ebac-harrison-oliveira.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compose.iml" filepath="$PROJECT_DIR$/compose.iml" />
     </modules>
   </component>
 </project>

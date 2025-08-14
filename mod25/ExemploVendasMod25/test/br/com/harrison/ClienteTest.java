@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class ClienteTest {
 
-    private IClienteService clienteService;
+    private final IClienteService clienteService;
 
     public ClienteTest(){
         clienteService = new ClienteService(new ClienteDao());
