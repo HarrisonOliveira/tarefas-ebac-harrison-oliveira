@@ -12,10 +12,11 @@ public class ConnectionFactory {
         ConnectionFactory.connection = connection;
     }
 
+    //    TODO: Se não funcionar, colocar "connection != null &&" no else-if.
     public static Connection getConnection() throws SQLException {
         if (connection == null) {
             connection = initConnection();
-        }else if (connection != null && connection.isClosed()) {
+        } else if (connection.isClosed()) {
             connection = initConnection();
         }
         return connection;
