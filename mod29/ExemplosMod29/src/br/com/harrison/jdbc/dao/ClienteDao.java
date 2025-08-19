@@ -38,20 +38,9 @@ public class ClienteDao implements IClienteDao{
     }
 
     private String getSqlClienteInsert() {
-        StringBuilder sqlClienteInsert = new StringBuilder();
-        sqlClienteInsert.append("INSERT INTO tb_cliente (codigo, nome) ");
-        sqlClienteInsert.append("VALUES (?, ?)");
-        return sqlClienteInsert.toString();
+        return "INSERT INTO tb_cliente (codigo, nome) VALUES (?, ?)";
     }
-    /*
-    * Unicializa uma conexao com banco de dados, executa a query e fecha a conexão.
-    * connection inicia a conexao com o banco de dados.
-    * sql recebe uma query a ser executada.
-    * statementPrepared verifica a query e recebida na variavel sql.
-    * adionarParametrosUpdate adiciona os parametros recebidos na variavel cliente para a query
-    * e no return executa a query usando o executeUpdate.
-    * e o finally fecha a conexao.
-    * */
+
     @Override
     public Integer atualizarCliente(Cliente cliente) throws Exception {
         Connection connection = null;
@@ -76,15 +65,11 @@ public class ClienteDao implements IClienteDao{
     }
 
     private String getSqlClienteUpdate() {
-        StringBuilder sqlClienteUpdate = new StringBuilder();
-        sqlClienteUpdate.append("UPDATE tb_cliente");
-        sqlClienteUpdate.append("SET nome = ?");
-        sqlClienteUpdate.append("WHERE codigo = ?");
-        return sqlClienteUpdate.toString();
+        return "UPDATE tb_cliente SET nome = ? WHERE codigo = ?";
     }
 
     @Override
-    public Integer excluirCliente(Cliente cliente) throws Exception {
+    public Integer excluirCliente(Cliente cliente) throws SQLException {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
@@ -134,7 +119,7 @@ public class ClienteDao implements IClienteDao{
                 cliente.setNome(nome);
             }
         } catch (Exception e){
-            System.out.println("Erro ao buscar o cliente: " + e.getMessage() );
+            System.out.println("[Erro ao buscar cliente] - Cliente não encontrado: " + e.getMessage() );
             throw e;
         } finally {
             closeConnection(connection, statement, resultSet);
@@ -157,7 +142,7 @@ public class ClienteDao implements IClienteDao{
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<Cliente> listaCliente = new ArrayList<>();
-        Cliente cliente = null;
+        Cliente cliente;
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -177,7 +162,7 @@ public class ClienteDao implements IClienteDao{
                 listaCliente.add(cliente);
             }
         } catch (Exception e){
-            LOGGER.config("Usuarios não encontrado na tabela: " + e.getMessage());
+            LOGGER.config("Usuários não encontrado na tabela: " + e.getMessage());
             throw e;
         } finally {
             closeConnection(connection, statement, resultSet);
@@ -191,10 +176,10 @@ public class ClienteDao implements IClienteDao{
 
     private void closeConnection(Connection connection, PreparedStatement statementPrepared, ResultSet result) {
         try {
-            // verifica se o resultado é diferente de nulo e se a conexão não foi encerrada, assim, fechando as conexóes.
-            if(result != null && !result.isClosed()) result.close();
-            if(statementPrepared != null && !statementPrepared.isClosed()) statementPrepared.close();
+//          Se a conexão não for nula e nem estiver fechado, eu fecho a conexão.
             if(connection != null && !connection.isClosed()) connection.close();
+            if(statementPrepared != null && !statementPrepared.isClosed()) statementPrepared.close();
+            if(result != null && !result.isClosed()) result.close();
         } catch (SQLException e) {
             LOGGER.config("Ocorreu um erro ao processar a requisição: " + e.getMessage());
         }

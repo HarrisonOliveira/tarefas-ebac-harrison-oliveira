@@ -2,6 +2,7 @@ package br.com.harrison.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConnectionFactory {
 
@@ -11,8 +12,10 @@ public class ConnectionFactory {
         ConnectionFactory.connection = connection;
     }
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         if (connection == null) {
+            connection = initConnection();
+        }else if (connection != null && connection.isClosed()) {
             connection = initConnection();
         }
         return connection;
@@ -20,7 +23,10 @@ public class ConnectionFactory {
 
     private static Connection initConnection() {
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost:15432/exemplo_mod29", "postgres", "admin");
+            return DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:15432/exemplo_mod29",
+                    "postgres",
+                    "admin");
         } catch (Exception e) {
             System.out.println("Erro ao conectar ao banco de dados: " + e.getMessage());
             throw new RuntimeException(e);
