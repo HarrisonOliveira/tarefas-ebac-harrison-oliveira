@@ -32,7 +32,6 @@ import br.com.rpires.exceptions.TipoElementoNaoConhecidoException;
  */
 public abstract class GenericDAO<T extends Persistente, E extends Serializable> implements IGenericDAO<T,E> {
 
-
     public abstract Class<T> getTipoClasse();
 
     public abstract void atualiarDados(T entity, T entityCadastrado);
@@ -73,6 +72,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
                 }
             }
         }
+
         if (returnValue == null) {
             String msg = "Chave principal do objeto " + entity.getClass() + " não encontrada";
             System.out.println("**** ERRO ****" + msg);
@@ -109,7 +109,6 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		return false;
     }
 
-
     @Override
     public void excluir(E valor) throws DAOException {
     	Connection connection = getConnection();
@@ -124,24 +123,22 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		} finally {
 			closeConnection(connection, stm, null);
 		}
-		
     }
 
     @Override
     public void alterar(T entity) throws TipoChaveNaoEncontradaException, DAOException {
-
-    	Connection connection = getConnection();
+    	Connection connection = null;
 		PreparedStatement stm = null;
 		try {
+            connection = getConnection();
 			stm = connection.prepareStatement(getQueryAtualizacao());
 			setParametrosQueryAtualizacao(stm, entity);
-			int rowsAffected = stm.executeUpdate();
-		} catch (SQLException e) {
+            stm.executeUpdate();
+        } catch (SQLException e) {
 			throw new DAOException("ERRO ALTERANDO OBJETO ", e);
 		} finally {
 			closeConnection(connection, stm, null);
 		}
-    	
     }
 
     @Override
@@ -164,7 +161,6 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		        		try {
 		                    Method method = entity.getClass().getMethod(javaSetName, classField);
 		                    setValueByType(entity, method, classField, rs, dbName);
-		                    
 		                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
 		                	throw new DAOException("ERRO CONSULTANDO OBJETO ", e);
 		                } catch (TipoElementoNaoConhecidoException e) {
@@ -174,10 +170,10 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		        }
 		        return entity;
 		    }
-		    
+
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | TipoChaveNaoEncontradaException e) {
 			throw new DAOException("ERRO CONSULTANDO OBJETO ", e);
-		} 
+		}
     	return null;
     }
     
@@ -190,7 +186,6 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
         		 return coluna.dbName();
         	 }
         }
-        
         return null;
     }
     
@@ -217,7 +212,6 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		} else {
 			throw new TipoElementoNaoConhecidoException("TIPO DE CLASSE NÃO CONHECIDO: " + classField);
 		}
-    	
 	}
 
 	private Object getValueByType(Class<?> typeField, ResultSet rs, String fieldName) throws SQLException, TipoElementoNaoConhecidoException {
@@ -331,7 +325,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		}
 		return list;
     }
-	
+
 	protected Connection getConnection() throws DAOException {
 		try {
 			return ConnectionFactory.getConnection();

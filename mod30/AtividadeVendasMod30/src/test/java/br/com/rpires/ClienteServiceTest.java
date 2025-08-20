@@ -33,13 +33,14 @@ public class ClienteServiceTest {
 	@Before
 	public void init() {
 		cliente = new Cliente();
-		cliente.setCpf(12312312312L);
-		cliente.setNome("Rodrigo");
-		cliente.setCidade("São Paulo");
-		cliente.setEnd("End");
-		cliente.setEstado("SP");
-		cliente.setNumero(10);
-		cliente.setTel(1199999999L);
+        cliente.setCpf(12312312312L);
+        cliente.setNome("Harrison");
+        cliente.setSobrenome("Oliveira");
+        cliente.setCidade("Acre");
+        cliente.setEnd("End");
+        cliente.setEstado("AC");
+        cliente.setNumero(10);
+        cliente.setTel(1199999999L);
 		
 	}
 	
@@ -63,9 +64,9 @@ public class ClienteServiceTest {
 	
 	@Test
 	public void alterarCliente() throws TipoChaveNaoEncontradaException, DAOException {
-		cliente.setNome("Rodrigo Pires");
+		cliente.setNome("Harrison");
 		clienteService.alterar(cliente);
 		
-		Assert.assertEquals("Rodrigo Pires", cliente.getNome());
+		Assert.assertEquals("Harrison", cliente.getNome());
 	}
 }

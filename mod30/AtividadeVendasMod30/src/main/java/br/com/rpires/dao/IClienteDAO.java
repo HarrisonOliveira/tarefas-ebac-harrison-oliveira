@@ -12,5 +12,4 @@ import br.com.rpires.domain.Cliente;
  */
 public interface IClienteDAO extends IGenericDAO<Cliente, Long> {
 
-
 }

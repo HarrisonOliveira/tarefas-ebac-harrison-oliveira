@@ -31,7 +31,6 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  *
  */
 public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
-	
 
 	@Override
 	public Class<Venda> getTipoClasse() {
@@ -51,7 +50,7 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 
 	@Override
 	public void finalizarVenda(Venda venda) throws TipoChaveNaoEncontradaException, DAOException {
-		
+
 		Connection connection = null;
     	PreparedStatement stm = null;
     	try {
@@ -130,8 +129,6 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 	protected void setParametrosQuerySelect(PreparedStatement stm, String valor) throws SQLException {
 		stm.setString(1, valor);
 	}
-	
-	
 
 	@Override
 	public Venda consultar(String valor) throws MaisDeUmRegistroException, TableException, DAOException {

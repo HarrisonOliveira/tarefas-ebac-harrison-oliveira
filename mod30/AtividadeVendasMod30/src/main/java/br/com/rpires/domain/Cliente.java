@@ -20,33 +20,42 @@ public class Cliente implements Persistente {
 	
 	@ColunaTabela(dbName = "nome", setJavaName = "setNome")
 	private String nome;
-	
+
+    @ColunaTabela(dbName = "sobrenome", setJavaName = "setSobrenome")
+    private String sobrenome;
+
 	@TipoChave("getCpf")
 	@ColunaTabela(dbName = "cpf", setJavaName = "setCpf")
     private Long cpf;
-    
+
 	@ColunaTabela(dbName = "tel", setJavaName = "setTel")
     private Long tel;
-    
+
 	@ColunaTabela(dbName = "endereco", setJavaName = "setEnd")
     private String end;
-    
+
 	@ColunaTabela(dbName = "numero", setJavaName = "setNumero")
     private Integer numero;
-    
+
 	@ColunaTabela(dbName = "cidade", setJavaName = "setCidade")
     private String cidade;
-    
+
 	@ColunaTabela(dbName = "estado", setJavaName = "setEstado")
     private String estado;
-    
+
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
+    public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Long getCpf() {
+    public String getSobrenome() {
+        return sobrenome;
+    }
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+    public Long getCpf() {
 		return cpf;
 	}
 	public void setCpf(Long cpf) {

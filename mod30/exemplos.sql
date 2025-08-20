@@ -1,7 +1,7 @@
-
 create table tb_cliente (
 	id bigint,
 	nome varchar(50) not null,
+	sobrenome varchar(50) not null,
 	cpf bigint not null,
 	tel bigint not null,
 	endereco varchar(50) not null,
@@ -10,7 +10,6 @@ create table tb_cliente (
 	estado varchar(50) not null,
 	constraint pk_id_cliente primary key(id)
 );
-
 
 create table tb_produto(
 	id bigint,
@@ -72,15 +71,13 @@ ADD CONSTRAINT UK_CODIGO_PRODUTO UNIQUE (CODIGO);
 ALTER TABLE TB_VENDA
 ADD CONSTRAINT UK_CODIGO_VENDA UNIQUE (CODIGO);
 
-
 SELECT V.ID AS ID_VENDA, V.CODIGO, V.ID_CLIENTE_FK, V.VALOR_TOTAL, V.DATA_VENDA, V.STATUS_VENDA,
-C.ID AS ID_CLIENTE, C.NOME, C.CPF, C.TEL, C.ENDERECO, C.NUMERO, C.CIDADE, C.ESTADO,
+C.ID AS ID_CLIENTE, C.NOME, C.SOBRENOME, C.CPF, C.TEL, C.ENDERECO, C.NUMERO, C.CIDADE, C.ESTADO,
 P.ID AS ID_PROD_QTD, P.QUANTIDADE, P.VALOR_TOTAL AS PROD_QTD_VALOR_TOTAL
-FROM TB_VENDA V 
+FROM TB_VENDA V
 INNER JOIN TB_CLIENTE C ON V.ID_CLIENTE_FK = C.ID
 INNER JOIN TB_PRODUTO_QUANTIDADE P ON P.ID_VENDA_FK = V.ID
 WHERE V.CODIGO = 'A1';
-
 
 SELECT PQ.ID, PQ.QUANTIDADE, PQ.VALOR_TOTAL,
 P.ID AS ID_PRODUTO, P.CODIGO, P.NOME, P.DESCRICAO, P.VALOR
