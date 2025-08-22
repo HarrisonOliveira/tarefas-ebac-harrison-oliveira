@@ -51,6 +51,7 @@ public class ProdutoDAOTest {
 		Produto produto = new Produto();
 		produto.setCodigo(codigo);
 		produto.setDescricao("Produto 1");
+        produto.setCategoria("Amidos");
 		produto.setNome("Produto 1");
 		produto.setValor(BigDecimal.TEN);
 		produtoDao.cadastrar(produto);

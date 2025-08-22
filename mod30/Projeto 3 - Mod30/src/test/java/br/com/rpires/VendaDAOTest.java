@@ -291,6 +291,7 @@ public class VendaDAOTest {
 		produto.setCodigo(codigo);
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
+        produto.setCategoria("Amidos");
 		produto.setValor(valor);
 		produtoDao.cadastrar(produto);
 		return produto;
@@ -300,11 +301,12 @@ public class VendaDAOTest {
 		Cliente cliente = new Cliente();
 		cliente.setCpf(12312312312L);
 		cliente.setNome("Rodrigo");
-		cliente.setCidade("São Paulo");
+        cliente.setSobrenome("Pires");
 		cliente.setEnd("End");
-		cliente.setEstado("SP");
-		cliente.setNumero(10);
-		cliente.setTel(1199999999L);
+        cliente.setCidade("São Paulo");
+        cliente.setNumero(10);
+        cliente.setEstado("SP");
+        cliente.setTel(1199999999L);
 		clienteDao.cadastrar(cliente);
 		return cliente;
 	}

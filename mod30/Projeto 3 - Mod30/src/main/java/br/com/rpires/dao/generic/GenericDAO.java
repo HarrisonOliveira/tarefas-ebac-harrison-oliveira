@@ -94,7 +94,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 			if(rowsAffected > 0) {
 				try (ResultSet rs = stm.getGeneratedKeys()){
 					if (rs.next()) {
-						Persistente per = (Persistente) entity;
+						Persistente per = entity;
 						per.setId(rs.getLong(1));
 					}
 				}
