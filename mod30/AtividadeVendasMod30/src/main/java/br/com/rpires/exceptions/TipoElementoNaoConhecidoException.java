@@ -3,6 +3,8 @@
  */
 package br.com.rpires.exceptions;
 
+import java.io.Serial;
+
 /**
  * @author rodrigo.pires
  *
@@ -10,7 +12,8 @@ package br.com.rpires.exceptions;
 public class TipoElementoNaoConhecidoException extends Exception {
 	
 
-	private static final long serialVersionUID = -2268140970978666251L;
+	@Serial
+    private static final long serialVersionUID = -2268140970978666251L;
 
 	public TipoElementoNaoConhecidoException(String msg) {
         this(msg, null);
