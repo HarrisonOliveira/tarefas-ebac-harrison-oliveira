@@ -1,5 +1,6 @@
-package com.exemploMod32.entity;
+package com.exemploMod33.entity;
 
+import com.exemploMod33.enums.StatusMatricula;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -33,6 +34,13 @@ public class Matricula {
             referencedColumnName = "codigo",
             nullable = false)
     private Curso curso;
+
+    @OneToOne
+    @JoinColumn(name = "codigo_aluno_fk",
+            foreignKey = @ForeignKey(name = "fk_aluno_matricula"),
+            referencedColumnName = "codigo",
+            nullable = false)
+    private Aluno aluno;
 
     public Long getId() {
         return id;
@@ -80,6 +88,14 @@ public class Matricula {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     @Override

@@ -1,8 +1,8 @@
-package com.exemploMod32.service;
+package com.exemploMod33.service;
 
 
-import com.exemploMod32.entity.Curso;
-import com.exemploMod32.repository.CursoRepository;
+import com.exemploMod33.entity.Curso;
+import com.exemploMod33.repository.CursoRepository;
 
 import java.util.List;
 

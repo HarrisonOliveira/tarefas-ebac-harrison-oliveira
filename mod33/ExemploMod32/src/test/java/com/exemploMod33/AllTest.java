@@ -1,15 +1,13 @@
-package com.exemploMod32;
+package com.exemploMod33;
 
+import com.exemploMod33.controller.CursoController;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
 @Suite
 @SelectClasses({
-        CursoTest.class,
-        MatriculaTest.class
+        CursoController.class,
 })
 public class AllTest {
-    public void allTest(){
-
-    }
+    public void allTest(){}
 }

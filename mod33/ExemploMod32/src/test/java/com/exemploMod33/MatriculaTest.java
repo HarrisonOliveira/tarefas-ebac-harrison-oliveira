@@ -1,10 +1,13 @@
-package com.exemploMod32;
+package com.exemploMod33;
 
-import com.exemploMod32.entity.Matricula;
-import com.exemploMod32.entity.StatusMatricula;
-import com.exemploMod32.repository.CursoRepository;
-import com.exemploMod32.repository.IMatriculaRepository;
-import com.exemploMod32.repository.MatriculaRepository;
+import com.exemploMod33.controller.AlunoController;
+import com.exemploMod33.entity.Aluno;
+import com.exemploMod33.entity.Matricula;
+import com.exemploMod33.enums.StatusMatricula;
+import com.exemploMod33.repository.AlunoRepository;
+import com.exemploMod33.repository.CursoRepository;
+import com.exemploMod33.repository.IMatriculaRepository;
+import com.exemploMod33.repository.MatriculaRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,14 +19,19 @@ public class MatriculaTest {
     @Test
     public void cadastrarMatricula(){
         IMatriculaRepository matriculaRepository = new MatriculaRepository();
+        AlunoController alunoController = new AlunoController();
         CursoRepository cursoRepository = new CursoRepository();
 
+        Aluno aluno = alunoController.consultarAlunoPorCodigo("A-01");
+
         Matricula matricula = new Matricula();
-        matricula.setCodigo("COD-01");
+        matricula.setCodigo("M-01");
         matricula.setDataMatricula(Instant.now());
-        matricula.setValor(new BigDecimal("100.00"));
+        matricula.setValor(new BigDecimal("200.00"));
         matricula.setStatus(StatusMatricula.ATIVA);
-        matricula.setCurso(cursoRepository.consultarCurso("CURSO-01"));
+        matricula.setCurso(cursoRepository.consultarCurso("CURSO-02"));
+        matricula.setAluno(aluno);
+        aluno.setMatricula(matricula);
 
         matriculaRepository.cadastrarMatricula(matricula);
 

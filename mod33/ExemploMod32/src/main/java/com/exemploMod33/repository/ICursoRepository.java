@@ -1,7 +1,7 @@
-package com.exemploMod32.repository;
+package com.exemploMod33.repository;
 
-import com.exemploMod32.entity.Curso;
-import com.exemploMod32.entity.Matricula;
+import com.exemploMod33.entity.Curso;
+import com.exemploMod33.entity.Matricula;
 
 import java.util.List;
 

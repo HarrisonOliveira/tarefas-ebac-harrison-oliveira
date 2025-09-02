@@ -1,4 +1,4 @@
-package com.exemploMod32.connectionFactory;
+package com.exemploMod33.connectionFactory;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

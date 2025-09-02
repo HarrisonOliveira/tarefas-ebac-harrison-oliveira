@@ -12,6 +12,9 @@ target/
 *.iml
 *.ipr
 
+### Fleet ###
+.fleet
+
 ### Eclipse ###
 .apt_generated
 .classpath

@@ -1,8 +1,8 @@
-package com.exemploMod32.controller;
+package com.exemploMod33.controller;
 
-import com.exemploMod32.entity.Curso;
-import com.exemploMod32.service.CursoService;
-import com.exemploMod32.service.ICursoService;
+import com.exemploMod33.entity.Curso;
+import com.exemploMod33.service.CursoService;
+import com.exemploMod33.service.ICursoService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.exemploMod32.entity;
+package com.exemploMod33.enums;
 
 public enum StatusMatricula {
     ATIVA,

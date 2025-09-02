@@ -1,7 +1,7 @@
-package com.exemploMod32.repository;
+package com.exemploMod33.repository;
 
-import com.exemploMod32.entity.Matricula;
-import com.exemploMod32.entity.StatusMatricula;
+import com.exemploMod33.entity.Matricula;
+import com.exemploMod33.enums.StatusMatricula;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -17,7 +17,6 @@ public class MatriculaRepository implements IMatriculaRepository{
         entityManager.getTransaction().begin();
         entityManager.persist(matricula);
         entityManager.getTransaction().commit();
-
         entityManager.close();
         entityManagerFactory.close();
 

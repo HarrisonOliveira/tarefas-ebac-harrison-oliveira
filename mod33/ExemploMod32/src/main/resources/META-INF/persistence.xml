@@ -3,8 +3,9 @@
 
     <persistence-unit name="meuPersistenceUnit">
         <!-- Entidades -->
-        <class>com.exemploMod32.entity.Curso</class>
-        <class>com.exemploMod32.entity.Matricula</class>
+        <class>com.exemploMod33.entity.Curso</class>
+        <class>com.exemploMod33.entity.Matricula</class>
+        <class>com.exemploMod33.entity.Aluno</class>
 
         <properties>
             <!-- Configuração do banco -->

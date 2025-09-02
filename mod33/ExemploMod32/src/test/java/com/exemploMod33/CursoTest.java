@@ -1,9 +1,7 @@
-package com.exemploMod32;
+package com.exemploMod33;
 
-import com.exemploMod32.entity.Curso;
-import com.exemploMod32.entity.Matricula;
-import com.exemploMod32.repository.CursoRepository;
-import com.exemploMod32.repository.MatriculaRepository;
+import com.exemploMod33.entity.Curso;
+import com.exemploMod33.repository.CursoRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

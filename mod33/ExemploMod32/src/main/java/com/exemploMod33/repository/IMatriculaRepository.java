@@ -1,7 +1,7 @@
-package com.exemploMod32.repository;
+package com.exemploMod33.repository;
 
-import com.exemploMod32.entity.Matricula;
-import com.exemploMod32.entity.StatusMatricula;
+import com.exemploMod33.entity.Matricula;
+import com.exemploMod33.enums.StatusMatricula;
 
 public interface IMatriculaRepository {
     public Matricula cadastrarMatricula(Matricula matricula);

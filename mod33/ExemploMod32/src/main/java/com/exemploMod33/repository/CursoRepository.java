@@ -1,12 +1,10 @@
-package com.exemploMod32.repository;
+package com.exemploMod33.repository;
 
-import com.exemploMod32.connectionFactory.ConnectionFactory;
-import com.exemploMod32.entity.Curso;
-import com.exemploMod32.entity.Matricula;
+import com.exemploMod33.connectionFactory.ConnectionFactory;
+import com.exemploMod33.entity.Curso;
+import com.exemploMod33.entity.Matricula;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.NoResultException;
-import jakarta.persistence.Persistence;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.exemploMod32.controller;
+package com.exemploMod33.controller;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
