@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+
+    <persistence-unit name="meuPersistenceUnit">
+        <!-- Entidades -->
+        <class>com.exemploMod32.entity.Curso</class>
+        <class>com.exemploMod32.entity.Matricula</class>
+
+        <properties>
+            <!-- Configuração do banco -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:15432/exemplomod32"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="admin"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- Dialeto do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <!-- Opções extras -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
