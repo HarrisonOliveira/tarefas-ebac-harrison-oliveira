@@ -1,0 +1,31 @@
+services:
+  ebac-postgres-compose:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "superSecreta"
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/data/db
+    networks:
+      - postgres-ebac-network
+
+  ebac-pgadmin-compose:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "eu@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "superSecreta"
+    ports:
+      - "16543:80"
+    depends_on:
+      - ebac-postgres-compose
+    networks:
+      - postgres-ebac-network
+
+volumes:
+    postgres_data:
+
+networks:
+  postgres-ebac-network:
+    driver: bridge
