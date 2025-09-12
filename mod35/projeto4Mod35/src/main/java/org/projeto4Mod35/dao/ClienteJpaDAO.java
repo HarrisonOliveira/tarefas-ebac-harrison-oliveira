@@ -7,13 +7,4 @@ public class ClienteJpaDAO extends GenericJpaDAO<ClienteJpa, Long> implements IC
 	public ClienteJpaDAO() {
 		super(ClienteJpa.class);
 	}
-
-    @Override
-    public void excluir(Long valor) {
-        openConnection();
-        valor = entityManager.merge(valor);
-        entityManager.remove(valor);
-        entityManager.getTransaction().commit();
-        closeConnection();
-    }
 }

@@ -5,7 +5,4 @@ import org.projeto4Mod35.domain.ProdutoJpa;
 
 public interface IProdutoJpaDAO extends IGenericJpaDAO<ProdutoJpa, Long> {
 
-    void excluir(String valor);
-
-    ProdutoJpa consultar(String valor);
 }
